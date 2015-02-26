@@ -1,0 +1,13 @@
+<div class="container">
+  <header>
+    <h1>Welcome, anonymous!<%# @user.username %></h1>
+  </header>
+
+  <form action="/user" method="post">
+    <%# if @tweet %>
+    <input type="text" name="content" size="100" placeholder="What are you thinking?" value="<%# @tweet.content %>"/>
+    <%# raise error messages %>
+    <%# end %>
+    <input type="submit" value="tweet"/>
+  </form>
+</div>
