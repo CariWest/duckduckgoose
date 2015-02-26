@@ -5,9 +5,17 @@
 
   <form action="/user" method="post">
     <%# if @tweet %>
-    <input type="text" name="content" size="100" placeholder="What are you thinking?" value="<%# @tweet.content %>"/>
+    <textarea class="tweet-box" rows="4" cols="50" name="content" placeholder="What are you thinking?"></textarea>
     <%# raise error messages %>
     <%# end %>
     <input type="submit" value="tweet"/>
   </form>
 </div>
+
+<% @tweets.each do |tweet| %>
+  <div class="container">
+    <p><b><%# @user.username %>anonymous: </b><%= tweet.content %></p>
+  </div>
+<% end %>
+
+
