@@ -28,6 +28,11 @@
     </nav>
   </header>
 
+  <% if logged_in? %>
+    <div id="logout_button">
+      <a href="/logout">Log Out</a>
+    </div>
+    <% end %>
 
   <%= yield %>
 </body>

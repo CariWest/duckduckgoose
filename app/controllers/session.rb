@@ -52,4 +52,7 @@ post '/user/register' do
   end
 end
 
-
+get '/logout' do
+  session[:id] = nil
+  redirect '/'
+end
