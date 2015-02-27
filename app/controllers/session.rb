@@ -12,19 +12,22 @@ post '/user/login' do
       session[:id] = user.id
       redirect "/user"
     else
-      # flash[:notice] = "Login usuccessful. Try again." #How to implement  ActionDispath::Flash
       redirect '/'
-      #instead of redirect, maybe render erb:index with the users input(put that in form value)
     end
   end
 end
 
 post '/user/register' do
+  p params
   @user = User.new(params[:user])
+  p "got here"
+  p @user
   @user.save
+  puts "inside user/register"
   if @user.persisted?
+    puts "inside if"
+    session[:id] = @user.id
     redirect "/user"
-    session[:id] = user.id
   else
     erb :index
   end
