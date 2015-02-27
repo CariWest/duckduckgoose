@@ -13,13 +13,11 @@
 </div>
 
 <% @tweets.each do |tweet| %>
-  <div class="container group">
-    <p class="left"><b><%= @user.username %>:</b> <%= tweet.content %></p>
-    <form action="/delete/tweet" method="post" class="right"/>
-      <input type="hidden" name="_method" value="delete"/>
-      <input type="hidden" name="tweet" value="<%= tweet.id %>"/>
-      <input type="submit" value="delete"/>
-    </form>
+
+  <div class="container"
+    <%= erb :_tweet, locals: { tweet: tweet }, layout: false %>
+
+    <%= erb :_delete_button, locals: { tweet: tweet }, layout: false %>
   </div>
 <% end %>
 

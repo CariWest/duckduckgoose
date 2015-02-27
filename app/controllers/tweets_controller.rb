@@ -22,3 +22,8 @@ delete '/delete/tweet' do
   tweet.destroy
   redirect '/user'
 end
+
+get '/tweets/all' do
+  tweets = Tweet.order(created_at: :desc).first(5)
+  erb :tweet_landing_page, locals: { tweets: tweets }
+end
