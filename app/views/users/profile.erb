@@ -1,0 +1,23 @@
+<div>
+<!-- pic -->
+<h1><img src='<%= @current_user.image %>' style="width: 150px;"></h1>
+
+<!-- username -->
+
+<h1>Username: <%= @current_user.username %></h1>
+<!-- quote -->
+Quote:
+<q><%= @quote %></q>
+<!-- make new tweet -->
+</div>
+<!-- tweets section -->
+<% @current_user.tweets.each do |tweet| %>
+  <div class="container group">
+    <p class="left"><b><%= @current_user.username %>:</b> <%= tweet.content %></p>
+    <!--Make this a comment button-->
+<!--     <form action="/comment" method="post" class="right"/>
+      <input type="hidden" name="_method" value="comment"/>
+      <input type="hidden" name="tweet" value="<%= tweet.id %>"/>
+    </form> -->
+  </div>
+<% end %>
