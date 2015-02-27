@@ -18,8 +18,11 @@
   <title></title>
 </head>
 <body>
-
-
+  <% if !logged_in? %>
+    <div id="logout_button">
+      <button class="button" type="button">Log Out</button>
+    </div>
+    <% end %>
   <%= yield %>
 </body>
 </html>
