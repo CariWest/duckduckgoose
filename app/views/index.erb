@@ -1,20 +1,26 @@
 <div class="container">
+
+
   <h1>Welcome to Duck Duck Goose<h1>
     <h3> Log in or sign up if you're a new user</h3>
 
   <h3>Login: </h3>
   <form action="/user/login" method="POST">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="password" placeholder="Password">
+    <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+    <input type="text" name="password" placeholder="Password" >
     <input type="submit">
   </form>
 
   <h3>Register: </h3>
   <form action="/user/register" method="POST">
-    <input type="text" name="user[username]" placeholder="Username">
-    <input type="text" name="user[email]" placeholder="Email">
-    <input type="text" name="user[password]" placeholder="Password">
+    <input type="text" name="user[username]" placeholder="Username" value="<%= @user.username %>"/>
+    <input type="text" name="user[email]" placeholder="Email" value="<%= @user.email %>"/>
+    <input type="text" name="user[password]" placeholder="Password" />  <!-- not sure about password hash -->
     <input type="submit">
   </form>
+
+  <% if @user.errors.present? %>
+    <p><%= @user.errors.full_messages.to_sentence %></p>
+  <% end %>
 
 </div>

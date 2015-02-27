@@ -1,9 +1,12 @@
 get '/' do
+  @user = User.new
   erb :index
 end
 
 post '/user/login' do
   user = User.where(username: params[:username]).first
+
+  # raise error if user login fails...
   if user != "nil"
     if user.authenticate(params[:password])
       session[:id] = user.id
@@ -17,9 +20,14 @@ post '/user/login' do
 end
 
 post '/user/register' do
-  user = User.create(params[:user])
-  session[:id] = user.id
-  redirect "/user"
+  @user = User.new(params[:user])
+  @user.save
+  if @user.persisted?
+    redirect "/user"
+    session[:id] = user.id
+  else
+    erb :index
+  end
 end
 
 
