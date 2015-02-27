@@ -22,4 +22,7 @@ post '/user/register' do
   redirect "/user"
 end
 
-
+get '/logout' do
+  session[:id] = nil
+  redirect '/'
+end

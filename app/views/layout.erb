@@ -18,9 +18,9 @@
   <title></title>
 </head>
 <body>
-  <% if !logged_in? %>
+  <% if logged_in? %>
     <div id="logout_button">
-      <button class="button" type="button">Log Out</button>
+      <a href="/logout">Log Out</a>
     </div>
     <% end %>
   <%= yield %>
