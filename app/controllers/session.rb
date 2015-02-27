@@ -1,5 +1,4 @@
 get '/' do
-  p "inside home page"
   erb :index
 end
 
