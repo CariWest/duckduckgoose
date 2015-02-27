@@ -24,7 +24,9 @@
     <nav>
       <a href="/tweets/all" class="left">All Tweets</a>
       <% if logged_in? %>
+
         <div class="right">
+          <a href="/user" class="padded"><%= current_user.username.capitalize %></a>
           <a href="/logout">Log Out</a>
         </div>
       <% end %>
