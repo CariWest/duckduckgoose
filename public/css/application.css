@@ -58,6 +58,10 @@ a.bold {
   float: left;
 }
 
+.padded {
+  padding-right: 16px;
+}
+
 /*****************layout*****************/
 header.horizontal {
   width: 100%;
