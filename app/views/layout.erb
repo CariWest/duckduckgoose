@@ -22,17 +22,18 @@
   <header class="horizontal">
     <div class="no-border-container">
     <nav>
-      <ul>
-        <li><a href="#">Nav Bar</a></li>
+      <ul class="layout-header">
+        <% if logged_in? %>
+          <li>
+            <div id="logout_button">
+              <a href="/logout">Log Out</a>
+            </div>
+          </li>
+        <% end %>
+        <li><a href="/tweets/all">All Tweets</a></li>
       </ul>
     </nav>
   </header>
-
-  <% if logged_in? %>
-    <div id="logout_button">
-      <a href="/logout">Log Out</a>
-    </div>
-    <% end %>
 
   <%= yield %>
 </body>

@@ -38,6 +38,17 @@
 .red {
   color: red;
 }
+a {
+  text-decoration: none;
+}
+a.bold {
+  font-weight: bold;
+}
+
+.layout-header li {
+  padding: 10px;
+}
+
 
 /*****************layout*****************/
 header.horizontal {
