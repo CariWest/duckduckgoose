@@ -47,8 +47,16 @@ a.bold {
 
 .layout-header li {
   padding: 10px;
+  }
+
+.layout-header {
+  width: 200px;
+
 }
 
+.left {
+  float: left;
+}
 
 /*****************layout*****************/
 header.horizontal {
@@ -65,4 +73,10 @@ header.horizontal ul {
 
 header.horizontal ul li {
   display: inline-block;
+}
+
+
+
+nav {
+  padding: 20px 0;
 }
