@@ -6,7 +6,7 @@
   <h3>Login: </h3>
   <form action="/user/login" method="POST">
     <input type="text" name="username" placeholder="Username" />
-    <input type="text" name="password" placeholder="Password" />
+    <input type="password" name="password" placeholder="Password" />
     <input type="submit" />
   </form>
 
@@ -19,7 +19,7 @@
   <form action="/user/register" method="POST">
     <input type="text" name="user[username]" placeholder="Username" />
     <input type="text" name="user[email]" placeholder="Email" />
-    <input type="text" name="user[password]" placeholder="Password" />  <!-- not sure about password hash -->
+    <input type="password" name="user[password]" placeholder="Password" />  <!-- not sure about password hash -->
     <input type="submit" />
   </form>
 
