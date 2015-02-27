@@ -16,3 +16,9 @@ post '/user' do
     "You can't do that"
   end
 end
+
+delete '/delete/tweet' do
+  tweet = Tweet.find(params[:tweet])
+  tweet.destroy
+  redirect '/user'
+end
