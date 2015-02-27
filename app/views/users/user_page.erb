@@ -1,6 +1,6 @@
 <div class="container">
   <header>
-    <h1>Welcome, anonymous!<%# @user.username %></h1>
+    <h1>welcome, <%= @user.username %>!</h1>
   </header>
 
   <form action="/user" method="post">
@@ -13,8 +13,13 @@
 </div>
 
 <% @tweets.each do |tweet| %>
-  <div class="container">
-    <p><b><%# @user.username %>anonymous: </b><%= tweet.content %></p>
+  <div class="container group">
+    <p class="left"><b><%= @user.username %>:</b> <%= tweet.content %></p>
+    <form action="/delete/tweet" method="post" class="right"/>
+      <input type="hidden" name="_method" value="delete"/>
+      <input type="hidden" name="tweet" value="<%= tweet.id %>"/>
+      <input type="submit" value="delete"/>
+    </form>
   </div>
 <% end %>
 
