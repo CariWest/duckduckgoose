@@ -84,3 +84,11 @@ header.horizontal ul li {
 nav {
   padding: 20px 0;
 }
+
+/*************** profile page ***************/
+
+.tweet_date {
+float: right;
+  /*margin-left: 5em;*/
+}
+
