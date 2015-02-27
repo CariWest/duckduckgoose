@@ -1,25 +1,55 @@
 get '/' do
+  @errors = []
+  @user = User.new
   erb :index
 end
 
 post '/user/login' do
   user = User.where(username: params[:username]).first
-  if user != "nil"
-    if user.authenticate(params[:password])
-      session[:id] = user.id
-      redirect "/user"
-    else
-      # flash[:notice] = "Login usuccessful. Try again." #How to implement  ActionDispath::Flash
-      redirect '/'
-      #instead of redirect, maybe render erb:index with the users input(put that in form value)
-    end
+
+  @errors = []
+
+  if user == nil
+    @errors << "User does not exist"
+  elsif user.authenticate(params[:password]) == false
+    @errors << "Password does not match"
   end
+
+  if @errors.empty?
+    session[:id] = user.id
+    redirect "/user"
+  else
+    @user = User.new
+    erb :index
+  end
+
+
+
+  # raise error if user login fails...
+  # if user != "nil"
+  #   if user.authenticate(params[:password])
+  #     session[:id] = user.id
+  #     redirect "/user"
+  #   else
+  #     redirect '/'
+  #   end
+  # end
 end
 
 post '/user/register' do
-  user = User.create(params[:user])
-  session[:id] = user.id
-  redirect "/user"
+  p params
+  @user = User.new(params[:user])
+  p "got here"
+  p @user
+  @user.save
+  puts "inside user/register"
+  if @user.persisted?
+    puts "inside if"
+    session[:id] = @user.id
+    redirect "/user"
+  else
+    erb :index
+  end
 end
 
 
