@@ -1,10 +1,11 @@
 get '/' do
+
   erb :index
 end
 
 post '/user/login' do
   user = User.where(username: params[:username]).first
-  if != "nil"
+  if user != "nil"
     if user.authenticate(params[:password])
       session[:id] = user.id
       redirect "/user"
