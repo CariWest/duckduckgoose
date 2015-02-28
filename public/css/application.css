@@ -96,3 +96,8 @@ float: right;
 #search_bar {
 padding: 18px;
 }
+
+/*************** edit button ***************/
+.edit_profile {
+  float:right;
+}
