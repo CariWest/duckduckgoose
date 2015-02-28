@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   validates :username, :email, uniqueness: true
 
   has_many :tweets
+  has_many :followerships, {
+    :foreign_key => "user_id",
+    :class_name => "Followership"
+  }
 
   include BCrypt
 

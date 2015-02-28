@@ -22,18 +22,6 @@ post '/user/login' do
     @user = User.new
     erb :index
   end
-
-
-
-  # raise error if user login fails...
-  # if user != "nil"
-  #   if user.authenticate(params[:password])
-  #     session[:id] = user.id
-  #     redirect "/user"
-  #   else
-  #     redirect '/'
-  #   end
-  # end
 end
 
 post '/user/register' do
@@ -48,6 +36,7 @@ post '/user/register' do
     session[:id] = @user.id
     redirect "/user"
   else
+    @errors = []
     erb :index
   end
 end

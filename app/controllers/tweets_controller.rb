@@ -24,6 +24,6 @@ delete '/delete/tweet' do
 end
 
 get '/tweets/all' do
-  tweets = Tweet.order(created_at: :desc).first(5)
+  tweets = Tweet.order(created_at: :desc).first(50)
   erb :tweet_landing_page, locals: { tweets: tweets }
 end
